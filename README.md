@@ -1,16 +1,76 @@
-# React + Vite
+# Lipi Coffee – Premium Coffee Retreat ☕
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Lipi Coffee is a refined, minimalist landing page for a specialized café located in Navrangpura, Ahmedabad. Designed for thinkers, creators, and solo coffee moments, the website reflects the brand's sophisticated aesthetic and commitment to calm, high-quality experiences.
 
-Currently, two official plugins are available:
+![Lipi Coffee Design](https://raw.githubusercontent.com/Jay09990/Lipi_cafe/main/public/logo.png) *(Note: Placeholder image URL)*
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Key Features
 
-## React Compiler
+- **Premium Minimalist Design**: A calm, sophisticated UI built with custom color palettes (`brown`, `cream`, `wood`) and elegant typography.
+- **Tailwind CSS v4**: Fully migrated to the latest Tailwind CSS v4, utilizing the new `@theme` engine for centralized design tokens.
+- **Edge-to-Edge Gallery**: A responsive, asymmetric image grid designed to provide an immersive visual experience.
+- **Authentic Google Reviews**: Integrated real 5-star feedback from Google Maps reviewers to build trust and social proof.
+- **Full Responsiveness**: Optimized for all screen sizes, featuring a custom mobile navigation and adaptive layouts.
+- **Modular Architecture**: Clean, component-based React structure for high maintainability and performance.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Tech Stack
 
-## Expanding the ESLint configuration
+- **Frontend**: [React.js](https://reactjs.org/) (v19)
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **Design System**: Custom design tokens in `index.css`
+- **Fonts**: Playfair Display (Serif), DM Sans (Sans-serif)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v18 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Jay09990/Lipi_cafe.git
+   cd Lipi_cafe
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+### Building for Production
+
+To create an optimized production build:
+```bash
+npm run build
+```
+The output will be generated in the `dist/` directory.
+
+## 📁 Project Structure
+
+```text
+src/
+├── components/     # Modular UI components (Header, Hero, Menu, etc.)
+├── constants/      # Global constants and site data (Menu items, Testimonials)
+├── main/           # Main entry layouts
+├── App.jsx         # Application root
+└── index.css       # Tailwind v4 theme and global styles
+```
+
+## 🗺️ Location
+
+**Lipi Coffee**  
+Indraprasth Complex, Vijay Cross Road  
+Navrangpura, Ahmedabad – 380009  
+*Open 10:00 AM – 12:00 AM*
+
+---
+© 2025 Lipi Coffee. All rights reserved.
