@@ -8,7 +8,7 @@ export const COLORS = {
     light: "#E8E0D4",
 };
 
-export const NAV_LINKS = ["Menu", "Our Story"];
+export const NAV_LINKS = ["Menu", "Our Story", "Gallery"];
 
 export const MENU_ITEMS = {
     "Classic Coffee": [
@@ -85,10 +85,10 @@ export const TESTIMONIALS = [
 ];
 
 export const GALLERY_IMAGES = [
-    { bg: "linear-gradient(135deg, #3D2B1F 0%, #6B4226 100%)", label: "The Bar", span: "col-span-2 row-span-2" },
-    { bg: "linear-gradient(135deg, #C9A27E 0%, #A07850 100%)", label: "Pour Over", span: "col-span-1 row-span-1" },
-    { bg: "linear-gradient(135deg, #2C1810 0%, #4A3428 100%)", label: "Corner Table", span: "col-span-1 row-span-1" },
-    { bg: "linear-gradient(135deg, #8B7355 0%, #6B5A3E 100%)", label: "Morning Light", span: "col-span-1 row-span-2" },
-    { bg: "linear-gradient(135deg, #D4B896 0%, #C9A27E 100%)", label: "Latte Art", span: "col-span-1 row-span-1" },
-    { bg: "linear-gradient(135deg, #1E1E1E 0%, #3D2B1F 100%)", label: "Late Hours", span: "col-span-1 row-span-1" },
-];
+    { src: "/images/hero_bg.png", label: "Lipi Coffee interior — cozy cafe in Navrangpura Ahmedabad", col: "1 / 3", row: "1 / 3" },
+    { src: "/images/gallery_pour_over.png", label: "Specialty pour over coffee being brewed at Lipi Coffee", col: "3 / 4", row: "1 / 2" },
+    { src: "/images/gallery_counter.png", label: "Coffee bar counter at Lipi Coffee, Navrangpura", col: "3 / 4", row: "2 / 3" },
+    { src: "/images/gallery_nook.png", label: "Solo seating corner at Lipi Coffee, Ahmedabad", col: "1 / 2", row: "3 / 4" },
+    { src: "/images/gallery_latte.png", label: "Latte art crafted by barista at Lipi Coffee", col: "2 / 3", row: "3 / 4" },
+    { src: "/images/hero_bg.png", label: "Quiet evening hours at Lipi Coffee", col: "3 / 4", row: "3 / 4" },
+]

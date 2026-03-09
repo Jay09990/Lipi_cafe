@@ -7,6 +7,7 @@ import Menu from "../components/Menu";
 import Gallery from "../components/Gallery";
 import Location from "../components/Location";
 import Footer from "../components/Footer";
+import SEOSchema from '../components/SEOSchema'
 
 export default function LipiCoffee() {
     const [scrolled, setScrolled] = useState(false);
@@ -17,27 +18,10 @@ export default function LipiCoffee() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    useEffect(() => {
-        // Inject Google Fonts
-        const link = document.createElement("link");
-        link.rel = "stylesheet";
-        link.href = "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=DM+Sans:wght@400;500;600&display=swap";
-        document.head.appendChild(link);
-
-        // SEO meta
-        document.title = "Lipi Coffee – Best Café in Navrangpura Ahmedabad";
-        const meta = document.createElement("meta");
-        meta.name = "description";
-        meta.content = "Lipi Coffee is a refined coffee retreat in Navrangpura Ahmedabad known for its solo-friendly atmosphere, DIY service model, and 4.9-star rated coffee experience.";
-        document.head.appendChild(meta);
-
-        return () => {
-            document.head.removeChild(link);
-        };
-    }, []);
-
     return (
         <div className="font-sans bg-offwhite min-h-screen overflow-x-hidden">
+            <SEOSchema />
+
             <Header scrolled={scrolled} />
             <main>
                 <Hero />

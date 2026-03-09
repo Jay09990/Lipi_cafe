@@ -1,63 +1,108 @@
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { GALLERY_IMAGES } from "../constants";
+
+gsap.registerPlugin(ScrollTrigger);
+
 export default function Gallery() {
+    const galleryRef = useRef(null);
+    const titleRef = useRef(null);
+    const gridRef = useRef(null);
+
+    useEffect(() => {
+        const ctx = gsap.context(() => {
+            // Title animation
+            gsap.from(titleRef.current, {
+                scrollTrigger: {
+                    trigger: titleRef.current,
+                    start: "top 85%",
+                },
+                x: -50,
+                opacity: 0,
+                duration: 1,
+                ease: "power2.out"
+            });
+
+            // Grid items animation
+            const items = gridRef.current.children;
+            gsap.from(items, {
+                scrollTrigger: {
+                    trigger: gridRef.current,
+                    start: "top 80%",
+                },
+                y: 60,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.15,
+                ease: "power3.out"
+            });
+        }, galleryRef);
+
+        return () => ctx.revert();
+    }, []);
+
     return (
         <section
             id="gallery"
-            className="bg-charcoal pt-[120px] w-full overflow-hidden"
+            ref={galleryRef}
+            className="bg-offwhite py-20 md:py-[140px] px-6 md:px-[8%] relative overflow-hidden"
         >
-            {/* Header - Moved to top left outside the box */}
-            <div className="px-[8%] mb-12 md:mb-16 text-center md:text-left">
-                <div className="flex items-center justify-center md:justify-start gap-3 mb-4">
-                    <div className="w-8 h-px bg-wood" />
-                    <span className="font-sans text-[11px] tracking-[3px] text-wood uppercase">
-                        Ambience
-                    </span>
+            {/* Header Content */}
+            <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-8">
+                <div ref={titleRef}>
+                    <div className="flex items-center gap-3 mb-4">
+                        <div className="w-8 h-px bg-wood" />
+                        <span className="font-sans text-[11px] tracking-[3px] text-wood uppercase">
+                            Atmosphere
+                        </span>
+                    </div>
+                    <h2 className="font-serif text-[clamp(32px,5vw,56px)] font-bold text-brown leading-tight md:leading-[1.1]">
+                        Feel the
+                        <br />
+                        <em className="text-wood font-style-normal non-italic">Space</em>
+                    </h2>
                 </div>
-                <h2 className="font-serif text-[clamp(32px,6vw,64px)] font-bold text-cream leading-tight md:leading-none m-0">
-                    Feel the
-                    <em className="text-wood md:ml-4 font-style-italic non-italic block md:inline mt-2 md:mt-0">Space</em>
-                </h2>
+                <p className="font-sans text-muted text-sm md:text-base max-w-[320px] leading-relaxed mb-4">
+                    Every texture and beam of light is curated to provide a sanctuary for your best thoughts.
+                </p>
             </div>
 
-            {/* Asymmetric grid - Responsive column configuration */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-[1.5fr_1fr_1fr] grid-rows-none md:grid-rows-[380px_380px] gap-[2px] w-full">
-                {/* Large left - spans 2 rows on desktop */}
-                <div className="h-[400px] md:h-auto md:row-span-2 relative overflow-hidden group bg-[linear-gradient(135deg,#3D2B1F_0%,#6B4226_60%,#4A3428_100%)]">
-                    <div className="absolute bottom-6 md:bottom-8 left-6 md:left-8 opacity-100 md:opacity-0 transition-opacity duration-300 z-10 group-hover:opacity-100">
-                        <span className="font-sans text-[13px] text-cream tracking-[3px] uppercase">The Counter</span>
-                    </div>
-                    <div className="absolute inset-0 flex items-center justify-center opacity-10">
-                        <span className="text-[80px] md:text-[120px]">☕</span>
-                    </div>
-                    <div className="absolute inset-0 bg-black/10 transition-colors duration-300 group-hover:bg-transparent" />
-                </div>
+            {/* Responsive Grid */}
+            <div
+                ref={gridRef}
+                className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-[1.5fr_1fr_1fr] grid-rows-none md:grid-rows-[380px_380px] gap-2 lg:gap-4 w-full"
+            >
+                {GALLERY_IMAGES.map((img, i) => (
+                    <div
+                        key={i}
+                        style={{ gridColumn: img.col, gridRow: img.row }}
+                        className="relative group overflow-hidden bg-light cursor-pointer rounded-sm min-h-[200px]"
+                    >
+                        {/* Image Layer */}
+                        <img
+                            src={img.src}
+                            alt={img.label}
+                            loading="lazy" 
+                            className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                        />
 
-                {/* Pour Over Station */}
-                <div className="h-[250px] md:h-auto relative overflow-hidden group bg-[linear-gradient(135deg,#C9A27E_0%,#A07850_100%)]">
-                    <div className="absolute bottom-6 left-6 opacity-100 md:opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                        <span className="font-sans text-[11px] text-charcoal tracking-[2px] uppercase">Pour Over Station</span>
+                        {/* Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-8 flex flex-col justify-end">
+                            <span className="font-sans text-[10px] tracking-[2px] text-wood uppercase mb-2">
+                                0{i + 1}
+                            </span>
+                            <h3 className="font-serif text-xl text-cream font-medium">
+                                {img.label}
+                            </h3>
+                        </div>
                     </div>
-                </div>
+                ))}
+            </div>
 
-                {/* Corner Nook */}
-                <div className="h-[250px] md:h-auto relative overflow-hidden group bg-[linear-gradient(135deg,#2C1810_0%,#4A3428_100%)]">
-                    <div className="absolute bottom-6 left-6 opacity-100 md:opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                        <span className="font-sans text-[11px] text-cream tracking-[2px] uppercase">Corner Nook</span>
-                    </div>
-                </div>
-
-                {/* Latte Art */}
-                <div className="h-[250px] md:h-auto relative overflow-hidden group bg-[linear-gradient(135deg,#D4B896_0%,#B89060_100%)]">
-                    <div className="absolute bottom-6 left-6 opacity-100 md:opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                        <span className="font-sans text-[11px] text-charcoal tracking-[2px] uppercase">Latte Art</span>
-                    </div>
-                </div>
-
-                {/* Late Hours */}
-                <div className="h-[250px] md:h-auto relative overflow-hidden group bg-[linear-gradient(135deg,#1E1E1E_0%,#3D2B1F_100%)]">
-                    <div className="absolute bottom-6 left-6 opacity-100 md:opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                        <span className="font-sans text-[11px] text-cream tracking-[2px] uppercase">Late Hours</span>
-                    </div>
-                </div>
+            {/* Decorative background text */}
+            <div className="absolute -right-20 bottom-10 font-serif text-[18vw] text-brown/[0.03] pointer-events-none select-none">
+                Lipi
             </div>
         </section>
     );
