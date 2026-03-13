@@ -5,8 +5,8 @@ export default function SEOSchema() {
         "@type": "CafeOrCoffeeShop",
         "name": "Lipi Coffee",
         "description": "A refined coffee retreat in Navrangpura, Ahmedabad designed for thinkers, creators, and solo coffee moments.",
-        "url": "https://www.lipicoffee.in",
-        "telephone": "+91-XXXXXXXXXX",
+        "url": "https://lipi-cafe.vercel.app",
+        "telephone": "+918980838385",
         "priceRange": "₹₹",
         "servesCuisine": ["Coffee", "Continental", "Beverages"],
         "address": {
@@ -36,10 +36,10 @@ export default function SEOSchema() {
             "reviewCount": "200",
             "bestRating": "5"
         },
-        "image": "https://www.lipicoffee.in/images/og-cover.jpg",
+        "image": "https://lipi-cafe.vercel.app/images/hero_bg.png",
         "sameAs": [
-            "https://instagram.com/lipicoffee",
-            "https://www.google.com/maps?cid=YOUR_GOOGLE_CID"
+            "https://www.instagram.com/lipi_coffee",
+            "https://www.google.com/maps/place/Lipi+Coffee/@23.0417987,72.5448593"
         ]
     }
 

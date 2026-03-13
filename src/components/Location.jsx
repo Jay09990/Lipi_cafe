@@ -11,7 +11,7 @@ export default function Location() {
 
     const isOpen = () => {
         const hour = new Date().getHours()
-        return hour >= 10 // open 10am–midnight (hour 0–23, midnight = 0)
+        return hour >= 10 && hour < 24 // open 10am–midnight (hour 0–23, midnight = 0)
     }
 
     useEffect(() => {
@@ -117,26 +117,16 @@ export default function Location() {
                     {/* Right — Map placeholder */}
                     <div className="relative w-full overflow-hidden rounded-sm shadow-2xl" ref={mapRef}>
                         <div className="w-full h-[300px] sm:h-[400px] md:h-[520px] bg-charcoal relative">
-                            {/* Styled Map Image Placeholder */}
-                            <img
-                                src="/images/hero_bg.png"
-                                alt="Map Location"
-                                className="w-full h-full object-cover opacity-50 contrast-125 saturate-0"
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.5088614939023!2d72.54485927531435!3d23.04179867916033!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e8500757802eb%3A0x67c57becb86024e4!2sLipi%20Coffee!5e0!3m2!1sen!2sin!4v1773406328873!5m2!1sen!2sin"
+                                width="100%"
+                                height="100%"
+                                style={{ border: 0 }}
+                                allowFullScreen
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                                title="Lipi Coffee Location"
                             />
-
-                            {/* Stylized Pin */}
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="relative z-1 flex flex-col items-center animate-bounce-slow">
-                                    <div className="w-14 h-14 rounded-[50%_50%_50%_0] bg-wood -rotate-45 shadow-[0_12px_24px_rgba(201,162,126,0.3)] border-2 border-cream/20" />
-                                    <div className="mt-6 bg-cream px-6 py-3 font-sans text-[14px] font-bold text-brown shadow-2xl text-center rounded-sm">
-                                        Lipi Coffee
-                                    </div>
-                                    <div className="w-1 h-8 bg-gradient-to-t from-transparent to-wood/50 -mt-2 opacity-50" />
-                                </div>
-                            </div>
-
-                            {/* Vignette */}
-                            <div className="absolute inset-0 shadow-[inset_0_0_100px_rgba(0,0,0,0.5)] pointer-events-none" />
                         </div>
                     </div>
                 </div>

@@ -16,7 +16,7 @@ export default function Footer() {
                         </p>
                         <div className="flex gap-3 mt-8">
                             <a
-                                href="https://instagram.com"
+                                href="https://www.instagram.com/lipi_coffee?igsh=bTJscGU3aXg2bTBn"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-10 h-10 border border-white/15 flex items-center justify-center text-white/50 no-underline text-base transition-all duration-300 hover:border-wood hover:text-wood"

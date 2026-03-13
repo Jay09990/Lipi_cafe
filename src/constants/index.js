@@ -25,7 +25,7 @@ export const MENU_ITEMS = {
         { name: "Classic Cold Brew", desc: "18-hour slow steep", price: "₹205" },
         { name: "Barrel Aged Cold Brew", desc: "Complex oaky notes", price: "₹235" },
         { name: "Creamy Salted Caramel", desc: "Sweet & savory cold brew", price: "₹235" },
-        { name: "Vietnamense Iced Coffee", desc: "Bold coffee with condensed milk", price: "₹215" },
+        { name: "Vietnamese Iced Coffee", desc: "Bold coffee with condensed milk", price: "₹215" },
         { name: "Lavender Iced Coffee", desc: "Floral and refreshing", price: "₹215" },
         { name: "Iced Mocha", desc: "Chilled chocolate coffee blend", price: "₹215" },
         { name: "Citrus Cold Brew", desc: "Bright and zesty", price: "₹265" },
